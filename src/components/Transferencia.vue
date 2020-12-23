@@ -16,12 +16,12 @@
                 <form>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nº da conta</label>
-                        <input type="text" class="form-control" id="valor" aria-describedby="transHelp" v-model="receiver.num_conta" required>
-                        <small id="transHelp" class="form-text text-muted">Número da conta que vai receber o valor</small>
+                        <input type="text" class="form-control" id="numConta" aria-describedby="numContaHelp" v-model="receiver.num_conta" required>
+                        <small id="numContaHelp" class="form-text text-muted">Número da conta que vai receber o valor</small>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Cpf</label>
-                        <input type="text" class="form-control" id="valor" aria-describedby="cpfdHelp" v-model="receiver.cpf" v-mask="'###.###.###-##'" required>
+                        <input type="text" class="form-control" id="cpf" aria-describedby="cpfdHelp" v-model="receiver.cpf" v-mask="'###.###.###-##'" required>
                         <small id="cpfdHelp" class="form-text text-muted">Cpf do titular da conta que vai receber o valor</small>
                     </div>
                     <div class="form-group">
@@ -140,8 +140,10 @@ export default {
                 console.log(res);
                 if(res.data.msg == "Senha incorreta!"){ //se senha incorreta
                     alert("Senha incorreta!");
+                    window.location.reload(); //recarrega página
                 }else{
-                    alert("Transferência realizada com sucesso!");
+                    alert(res.data.msg); // msg: "Transferencia realizada com sucesso!" OU "Saldo insuficiente!"
+                    window.location.reload(); //recarrega página
                 }
             }).catch( e => {
                 console.log(e);
@@ -150,7 +152,7 @@ export default {
 
             /* console.log("CPF SENDER: " + this.cpf);
             console.log("PASSWORD SENDER: " + this.password);
-            console.log("N conta recebedora: " + this.contaA.num_conta);
+            console.log("N conta recebedora: " + this.contaAlvo.num_conta);
             console.log("CPF conta recebedora: " + this.contaAlvo.cpf);
             console.log("VALOR TRANSFERENCIA: " + this.valor); */
         },

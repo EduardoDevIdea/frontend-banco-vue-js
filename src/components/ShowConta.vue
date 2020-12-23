@@ -256,6 +256,7 @@ export default {
             this.show.saqueForm = false;
             this.show.transForm = false;
             this.show.depositoForm = false;
+            this.show.changePasswordFom = false;
         },
     }
 }
