@@ -11,7 +11,10 @@
                         <router-link to="/cadastro-cliente" class="btn btn-primary btn-lg" id="btn">Criar conta</router-link>
                     </div>
                     <div class="row justify-content-center mb-4 ">
-                        <router-link to="/contas" class="btn btn-success btn-lg" id="btn">Contas</router-link>
+                        <router-link to="/contas" class="btn btn-primary btn-lg" id="btn">Contas</router-link>
+                    </div>
+                    <div class="row justify-content-center mb-4 ">
+                        <router-link to="#" class="btn btn-secondary btn-lg" id="btn">Cadastrar Admin</router-link>
                     </div>
                 </div>
             </div>
