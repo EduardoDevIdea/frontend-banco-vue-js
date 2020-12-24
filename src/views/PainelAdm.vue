@@ -14,7 +14,7 @@
                         <router-link to="/contas" class="btn btn-primary btn-lg" id="btn">Contas</router-link>
                     </div>
                     <div class="row justify-content-center mb-4 ">
-                        <router-link to="#" class="btn btn-secondary btn-lg" id="btn">Cadastrar Admin</router-link>
+                        <router-link to="/cadastro-admin" class="btn btn-secondary btn-lg" id="btn">Cadastrar Admin</router-link>
                     </div>
                 </div>
             </div>
@@ -55,6 +55,7 @@ export default {
         }).then( res => {
             console.log(res);
             this.loggedIn = true;
+            //window.location.reload();
         }).catch(e =>{
             console.log(e);
         });

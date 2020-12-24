@@ -18,6 +18,11 @@ export default new Router({
             component: () => import("./views/PainelAdm")
         },
         {
+            path: '/cadastro-admin',
+            name: 'cadastro-admin',
+            component: () => import("./components/CadastroAdmin")
+        },
+        {
             path: '/cadastro-cliente',
             name: 'cadastro-cliente',
             component: () => import("./components/CadastroCliente")

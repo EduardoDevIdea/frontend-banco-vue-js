@@ -6,12 +6,10 @@
             <div class="col-md-3">
                 <h5>Conta - {{ conta.num_conta}}</h5>
             </div>
-        </div>
-
-        <!-- Loader vai aparecer se for true (enquanto a view estiver carregando no mounted()) -->
-        <div v-if="loader" class="row">
-            <div class="col text-center">
-                <img id="loader" src="../assets/loading.svg" alt="">
+            <div class="col text-right">
+                <router-link to="/painel-adm">
+                    <strong>Voltar</strong>
+                </router-link>
             </div>
         </div>
 
