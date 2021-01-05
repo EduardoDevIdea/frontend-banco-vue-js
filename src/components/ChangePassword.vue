@@ -21,7 +21,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nova senha</label>
-                        <input type="password" class="form-control" id="valor" v-model="newPasswowrd" aria-describedby="valorHelp" required>
+                        <input type="password" class="form-control" id="valor" v-model="newPassword" aria-describedby="valorHelp" required>
                         <small id="valorHelp" class="form-text text-muted">Digite a nova senha</small>
                     </div>
                     <div class="form-group">
@@ -46,7 +46,7 @@ export default {
     data(){
         return {
             currentPassword: "",
-            newPasswowrd: "",
+            newPassword: "",
             repeatPassword: "",
         }
     },
@@ -58,7 +58,7 @@ export default {
     methods: {
         //verifica a senha antiga e altera para a senha nova
         alterar: function(){
-            if(this.newPasswowrd == this.repeatPassword){
+            if(this.newPassword == this.repeatPassword){
                 this.confirmChange();
             }else{
                 alert("A nova senha não confere com a repetição.")
@@ -71,7 +71,7 @@ export default {
             axios.post("http://localhost:8000/api/change-password", {
                 cpf: this.cpf,
                 currentPassword: this.currentPassword,
-                newPasswowrd: this.newPasswowrd }, {
+                newPassword: this.newPassword }, {
                 headers: {
                     'Authorization': 'bearer' + localStorage.getItem('token')
                 }

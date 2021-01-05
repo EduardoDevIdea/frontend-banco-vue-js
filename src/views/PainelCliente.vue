@@ -117,6 +117,7 @@ export default {
                     this.defaultView(); //chamando função que torna a tela padrão
 
                     alert("Bem vindo!");
+
                 }
             }) //resposta de cpf ou senha incorretos
             .catch( e => {
