@@ -21,12 +21,12 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nova senha</label>
-                        <input type="password" class="form-control" id="valor" v-model="newPassword" aria-describedby="valorHelp" required>
+                        <input type="password" class="form-control" id="newPassword" v-model="newPassword" aria-describedby="valorHelp" required>
                         <small id="valorHelp" class="form-text text-muted">Digite a nova senha</small>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Repetir senha</label>
-                        <input type="password" class="form-control" id="valor" v-model="repeatPassword" aria-describedby="valorHelp" required>
+                        <input type="password" class="form-control" id="repeatPassword" v-model="repeatPassword" aria-describedby="valorHelp" required>
                         <small id="valorHelp" class="form-text text-muted">Digite a nova senha novamente</small>
                     </div>
                     <button type="button" class="btn btn-primary" @click="alterar">Alterar</button>
@@ -61,7 +61,8 @@ export default {
             if(this.newPassword == this.repeatPassword){
                 this.confirmChange();
             }else{
-                alert("A nova senha não confere com a repetição.")
+                alert("A nova senha não confere com a repetição.");
+                document.getElementById("repeatPassword").focus();
             }
         },
 

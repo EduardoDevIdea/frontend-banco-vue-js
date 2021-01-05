@@ -16,12 +16,12 @@
                 <form>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nº da conta</label>
-                        <input type="text" class="form-control" id="valor" aria-describedby="transHelp" v-model="receiver.num_conta" required>
+                        <input type="text" class="form-control" id="receiver_num_conta" aria-describedby="transHelp" v-model="receiver.num_conta" required>
                         <small id="transHelp" class="form-text text-muted">Número da conta que vai receber o valor</small>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Cpf</label>
-                        <input type="text" class="form-control" id="valor" aria-describedby="cpfdHelp" v-model="receiver.cpf" v-mask="'###.###.###-##'" required>
+                        <input type="text" class="form-control" id="receiver_cpf" aria-describedby="cpfdHelp" v-model="receiver.cpf" v-mask="'###.###.###-##'" required>
                         <small id="cpfdHelp" class="form-text text-muted">Cpf do titular da conta que vai receber o valor</small>
                     </div>
                     <div class="form-group">
@@ -108,15 +108,17 @@ export default {
                 }
             })
             .then( res => { //retorna conta
-                console.log(res);
+                //console.log(res);
+
+                 var cpfMaskOff = this.cpf.replace(/[^0-9]/g, ''); //variável recebe cpfNoMask sem máscara para ser usada na comparação do cpf vindo do banco de dados (tb sem mascara)
 
                 //se os dados informados forem iguais aos dados da conta encontrada
-                if( (this.receiver.cpf == res.data.cpf) && (this.receiver.num_conta == res.data.num_conta)){
+                if( (cpfMaskOff == res.data.cpf) && (this.receiver.num_conta == res.data.num_conta)){
                     this.contaAlvo = res.data; //contaAlvo recebe os dados da conta que foi encontrada na busca
                     this.show.confirmDeposito = true; //variável recebe true para exibir dados de confirmação na tela
                     this.show.formDeposito = false; //variável recebe false para formulário de transferencia não ser mais exibida na tela
                 }else{
-                    alert("Cpf ou Nº da conta errados");
+                    alert("Cpf ou Nº da conta incorretos");
                 }
             })
             .catch( e => {

@@ -13,7 +13,7 @@
                <h5 class="mx-auto">Atualização de Cadastro</h5> 
             </div>
 
-            <h5 class="mt-3">Cliente</h5>
+            <h5 class="mt-3">Cliente</h5> 
             <hr>
 
             <div class="form-row" id="row">
@@ -30,15 +30,15 @@
             <div class="form-row" id="row">
                 <div class="form-group col-md-2">
                     <label for="cpf">CPF</label>
-                    <input type="text" class="form-control" id="cpf" v-model="dados.cpf" maxlength="14" required> <!-- @keyup="mascaraCpf('###.###.###-##', this)" -->
+                    <input type="text" class="form-control" id="cpf" v-model="dados.cpf" v-mask="'###.###.###-##'" required> <!-- @keyup="mascaraCpf('###.###.###-##', this)" -->
                 </div>
                 <div class="form-group col-md-2">
                     <label for="telefone_1">Telefone 1</label>
-                    <input type="text" class="form-control" id="telefone_1" v-model="dados.telefone_1" required>
+                    <input type="text" class="form-control" id="telefone_1" v-model="dados.telefone_1" v-mask="'(##) #####-####'" required>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="telefone_2">Telefone 2</label>
-                    <input type="text" class="form-control" id="telefone_2" v-model="dados.telefone_2">
+                    <input type="text" class="form-control" id="telefone_2" v-model="dados.telefone_2" v-mask="'(##) #####-####'">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="email">Email</label>

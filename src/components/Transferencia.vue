@@ -108,11 +108,12 @@ export default {
                 }
             })
             .then( res => { //retorna conta
-                console.log(res);
+                //console.log(res);
+
+                var cpfMaskOff = this.receiver.cpf.replace(/[^0-9]/g, ''); //variável recebe cpfNoMask sem máscara para ser usada na comparação do cpf vindo do banco de dados (tb sem mascara)
 
                 //se os dados informados forem iguais aos dados da conta encontrada
-                if( (this.receiver.cpf == res.data.cpf) && (this.receiver.num_conta == res.data.num_conta)){
-                    //confirm("Confira os dados antes de confirmar - Titular: " + res.data.user_name + " " + res.data.user_last_name + " | " + "Valor: " + this.valor );
+                if( (cpfMaskOff == res.data.cpf) && (this.receiver.num_conta == res.data.num_conta)){
                     this.contaAlvo = res.data; //contaAlvo recebe os dados da conta que foi encontrada na busca
                     this.show.confirmTrans = true; //variável recebe true para exibir dados de confirmação na tela
                     this.show.formTrans = false; //variável recebe false para formulário de transferencia não ser mais exibida na tela
@@ -149,12 +150,6 @@ export default {
                 console.log(e);
                 alert("Erro " + e); //exibe erro técnico
             });
-
-            /* console.log("CPF SENDER: " + this.cpf);
-            console.log("PASSWORD SENDER: " + this.password);
-            console.log("N conta recebedora: " + this.contaAlvo.num_conta);
-            console.log("CPF conta recebedora: " + this.contaAlvo.cpf);
-            console.log("VALOR TRANSFERENCIA: " + this.valor); */
         },
 
         fechar: function(){
